@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Post from "../Post";
 import Header from "../Header";
 import { ThemeProvider } from "../../providers/ThemeContext";
-import "./app.scss";
 
 export default function App() {
   //console.log(styles);
