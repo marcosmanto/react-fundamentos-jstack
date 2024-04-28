@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import Post from "./Post";
 import Header from "./Header";
+
+export const ThemeContext = createContext();
 
 export default function App() {
   const [theme, setTheme] = useState("dark");
@@ -65,12 +67,8 @@ export default function App() {
   }
 
   return (
-    <>
-      <Header
-        title="Blog do JStack"
-        onToggleTheme={handleToggleTheme}
-        theme={theme}
-      >
+    <ThemeContext.Provider value={{ theme, onToggleTheme: handleToggleTheme }}>
+      <Header title="Blog do JStack">
         <h2>
           Posts da semana &nbsp;
           <button onClick={handleRefresh}>Atualizar</button>
@@ -87,6 +85,6 @@ export default function App() {
           post={post}
         />
       ))}
-    </>
+    </ThemeContext.Provider>
   );
 }

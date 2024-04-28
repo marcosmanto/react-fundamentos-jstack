@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { ThemeContext } from "./App";
 
-export default function Header({ title, children, theme, onToggleTheme }) {
+export default function Header({ title, children }) {
+  const { theme, onToggleTheme } = useContext(ThemeContext);
+
   return (
     <>
       <h1>
@@ -22,7 +25,6 @@ export default function Header({ title, children, theme, onToggleTheme }) {
 }
 
 Header.propTypes = {
-  theme: PropTypes.string.isRequired,
   title: PropTypes.string,
   children: PropTypes.node,
 };
