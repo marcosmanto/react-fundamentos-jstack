@@ -14,7 +14,10 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   module: {
-    rules: [{ test: /\.jsx?$/, exclude: /node_modules/, use: "babel-loader" }],
+    rules: [
+      { test: /\.jsx?$/, exclude: /node_modules/, use: "babel-loader" },
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+    ],
   },
   devServer: {
     port: 3000,
