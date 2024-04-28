@@ -14,6 +14,7 @@ export default function App() {
       subtitle: "Sub #01",
       likes: 10,
       read: false,
+      removed: false,
     },
     {
       id: crypto.randomUUID(),
@@ -21,6 +22,7 @@ export default function App() {
       subtitle: "Sub #02",
       likes: 20,
       read: true,
+      removed: true,
     },
     {
       id: crypto.randomUUID(),
@@ -28,6 +30,7 @@ export default function App() {
       subtitle: "Sub #03",
       likes: 30,
       read: false,
+      removed: false,
     },
   ]);
 
@@ -54,7 +57,15 @@ export default function App() {
   }
 
   function handleRemovePost(postId) {
-    setPosts((prevState) => prevState.filter((post) => post.id !== postId));
+    // -- Remove post from state --
+    //setPosts((prevState) => prevState.filter((post) => post.id !== postId));
+
+    // -- Change removed status only --
+    setPosts((prevState) =>
+      prevState.map((post) =>
+        post.id === postId ? { ...post, removed: true } : post,
+      ),
+    );
   }
 
   function handleToggleMarkAsRead(postId) {

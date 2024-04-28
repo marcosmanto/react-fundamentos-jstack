@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import PostHeader from "./PostHeader";
+import * as postStyles from "./post.scss";
 
 function Post({ post, onRemove, onToggleMarkAsRead }) {
   return (
-    <>
-      <article>
-        <PostHeader
-          onRemove={onRemove}
-          onToggleMarkAsRead={onToggleMarkAsRead}
-          post={post}
-        />
-        <br />
-        <small>{post.subtitle}</small>
-        <br />
-        Likes: {post.likes / 2}
-      </article>
-
-      <br />
-    </>
+    <article
+      className={
+        post.removed
+          ? `${postStyles.post} ${postStyles.deleted}`
+          : postStyles.post
+      }
+    >
+      <PostHeader
+        onRemove={onRemove}
+        onToggleMarkAsRead={onToggleMarkAsRead}
+        post={post}
+      />
+      <small>{post.subtitle}</small>
+      Likes: {post.likes / 2}
+    </article>
   );
 }
 
@@ -31,6 +32,7 @@ Post.propTypes = {
     subtitle: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
     read: PropTypes.bool.isRequired,
+    removed: PropTypes.bool.isRequired,
   }).isRequired,
 };
 
