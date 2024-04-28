@@ -34,16 +34,23 @@ export default function App() {
   //console.log(posts);
 
   function handleRefresh() {
-    setPosts((prevState) => [
-      ...prevState,
-      {
-        id: crypto.randomUUID(),
-        title: `Title #${String(prevState.length + 1).padStart(2, "0")}`,
-        subtitle: `Sub #${String(prevState.length + 1).padStart(2, "0")}`,
-        likes: (prevState.length + 1) * 10,
-        read: false,
-      },
-    ]);
+    setPosts((prevState) => {
+      const nextId =
+        Math.max(
+          ...prevState.map((e) => Number(e.title.match(/#(\d+)$/)?.pop())),
+        ) + 1;
+
+      return [
+        ...prevState,
+        {
+          id: crypto.randomUUID(),
+          title: `Title #${String(nextId).padStart(2, "0")}`,
+          subtitle: `Sub #${String(nextId).padStart(2, "0")}`,
+          likes: (prevState.length + 1) * 10,
+          read: false,
+        },
+      ];
+    });
   }
 
   function handleRemovePost(postId) {
@@ -63,7 +70,7 @@ export default function App() {
       <Header title="Blog do JStack">
         <h2>
           Posts da semana &nbsp;
-          <button onClick={handleRefresh}>Atualizar</button>
+          <button onClick={handleRefresh}>Adicionar Post</button>
         </h2>
       </Header>
 
