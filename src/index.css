@@ -1,9 +1,9 @@
-body.light {
-  background-color: rgb(231, 231, 231);
-  color: black;
+* {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-body.dark {
-  background-color: black;
-  color: white;
+h1,
+h2 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }

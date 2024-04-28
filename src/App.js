@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Post from "./Post";
 import Header from "./Header";
 import { ThemeProvider } from "./ThemeContext";
+import * as styles from "./index.css";
 
 export default function App() {
+  //console.log(styles);
   const [posts, setPosts] = useState([
     {
       id: crypto.randomUUID(),

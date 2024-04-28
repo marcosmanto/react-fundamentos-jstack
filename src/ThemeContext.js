@@ -1,15 +1,16 @@
 import React, { useState, createContext } from "react";
+import * as themeStyles from "./theme.css";
 
 export const ThemeContext = createContext();
 
 export function ThemeProvider(props) {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   function handleToggleTheme() {
     setTheme((prevState) => {
-      const newTheme = prevState === "dark" ? "light" : "dark";
-      document.body.className = newTheme;
-      return newTheme;
+      document.body.className =
+        prevState === "dark" ? themeStyles.light : themeStyles.dark;
+      return prevState === "dark" ? "light" : "dark";
     });
   }
 
