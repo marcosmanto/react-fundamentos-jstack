@@ -1,12 +1,10 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
+
 import Post from "./Post";
 import Header from "./Header";
-
-export const ThemeContext = createContext();
+import { ThemeProvider } from "./ThemeContext";
 
 export default function App() {
-  const [theme, setTheme] = useState("dark");
-
   const [posts, setPosts] = useState([
     {
       id: crypto.randomUUID(),
@@ -32,14 +30,6 @@ export default function App() {
   ]);
 
   //console.log(posts);
-
-  function handleToggleTheme() {
-    setTheme((prevState) => {
-      const newTheme = prevState === "dark" ? "light" : "dark";
-      document.body.className = newTheme;
-      return newTheme;
-    });
-  }
 
   function handleRefresh() {
     setPosts((prevState) => [
@@ -67,7 +57,7 @@ export default function App() {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, onToggleTheme: handleToggleTheme }}>
+    <ThemeProvider>
       <Header title="Blog do JStack">
         <h2>
           Posts da semana &nbsp;
@@ -85,6 +75,6 @@ export default function App() {
           post={post}
         />
       ))}
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 }
