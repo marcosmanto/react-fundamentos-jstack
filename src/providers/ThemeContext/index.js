@@ -4,12 +4,13 @@ import * as themeStyles from "./theme.css";
 export const ThemeContext = createContext();
 
 export function ThemeProvider(props) {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
+
+  document.body.className =
+    theme === "dark" ? themeStyles.dark : themeStyles.light;
 
   function handleToggleTheme() {
     setTheme((prevState) => {
-      document.body.className =
-        prevState === "dark" ? themeStyles.light : themeStyles.dark;
       return prevState === "dark" ? "light" : "dark";
     });
   }

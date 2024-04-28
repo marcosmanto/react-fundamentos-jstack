@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "../providers/ThemeContext";
 
 export default function Header({ title, children }) {
   const { theme, onToggleTheme } = useContext(ThemeContext);

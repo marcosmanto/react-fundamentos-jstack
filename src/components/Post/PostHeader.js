@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "./Button";
+import Button from "../Button";
 import * as postStyles from "./post.scss";
 
 export default function PostHeader({ post, onRemove, onToggleMarkAsRead }) {
