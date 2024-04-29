@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Post from "../Post";
 import Header from "../Header";
-import { ThemeProvider } from "../../providers/ThemeContext";
+import { ThemeContext } from "../../providers/ThemeContext";
+import { Title } from "./styles";
 
 export default function App() {
-  //console.log(styles);
+  const { theme } = useContext(ThemeContext);
+
   const [posts, setPosts] = useState([
     {
       id: crypto.randomUUID(),
@@ -76,12 +78,12 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider>
+    <>
       <Header title="Blog do JStack">
-        <h2>
+        <Title as="h2" inputcolor={theme === "light" ? "black" : "lime"}>
           Posts da semana &nbsp;
           <button onClick={handleRefresh}>Adicionar Post</button>
-        </h2>
+        </Title>
       </Header>
 
       <hr />
@@ -94,6 +96,6 @@ export default function App() {
           post={post}
         />
       ))}
-    </ThemeProvider>
+    </>
   );
 }

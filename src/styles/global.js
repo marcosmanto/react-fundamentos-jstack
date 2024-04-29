@@ -2,13 +2,11 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   * {
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
   h1,
   h2 {
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
     span {
       display: inline-block;
       width: 100px;
