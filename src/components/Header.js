@@ -1,13 +1,18 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { ThemeContext } from "../providers/ThemeContext";
+
+const Title = styled.h1`
+  color: #7530e2;
+`;
 
 export default function Header({ title, children }) {
   const { theme, onToggleTheme } = useContext(ThemeContext);
 
   return (
     <>
-      <h1>
+      <Title>
         {title}
         &nbsp;
         <span>
@@ -17,7 +22,7 @@ export default function Header({ title, children }) {
             </button>
           </small>
         </span>
-      </h1>
+      </Title>
 
       {children}
     </>

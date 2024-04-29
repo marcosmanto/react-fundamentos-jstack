@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import PostHeader from "./PostHeader";
 import * as postStyles from "./post.scss";
+import { Subtitle, Rate } from "./styles";
 
 function Post({ post, onRemove, onToggleMarkAsRead }) {
   return (
@@ -17,8 +18,8 @@ function Post({ post, onRemove, onToggleMarkAsRead }) {
         onToggleMarkAsRead={onToggleMarkAsRead}
         post={post}
       />
-      <small>{post.subtitle}</small>
-      Likes: {post.likes / 2}
+      <Subtitle>{post.subtitle}</Subtitle>
+      <Rate>Likes: {post.likes / 2}</Rate>
     </article>
   );
 }
