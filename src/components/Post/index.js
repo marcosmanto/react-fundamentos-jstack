@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import PostHeader from "./PostHeader";
-import * as postStyles from "./post.scss";
 import { Subtitle, Rate, Article } from "./styles";
 
 function Post({ post, onRemove, onToggleMarkAsRead }) {
   return (
-    <Article className={post.read ? "deleted" : ""}>
+    <Article removed={post.removed.toString()}>
       <PostHeader
         onRemove={onRemove}
         onToggleMarkAsRead={onToggleMarkAsRead}

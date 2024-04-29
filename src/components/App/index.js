@@ -52,6 +52,7 @@ export default function App() {
           subtitle: `Sub #${String(nextId).padStart(2, "0")}`,
           likes: (prevState.length + 1) * 10,
           read: false,
+          removed: false,
         },
       ];
     });

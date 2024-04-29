@@ -13,10 +13,14 @@ export const Article = styled.article`
     min-width: 113.64px;
   }
 
-  &.deleted {
-    pointer-events: none;
-    opacity: 0.3;
-  }
+  ${(props) => {
+    if (/^true$/i.test(props.removed)) {
+      return `
+          pointer-events: none;
+          opacity: 0.3;
+        `;
+    }
+  }}
 
   & > div {
     display: flex;
