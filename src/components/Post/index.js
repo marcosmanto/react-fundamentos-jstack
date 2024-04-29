@@ -2,17 +2,11 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import PostHeader from "./PostHeader";
 import * as postStyles from "./post.scss";
-import { Subtitle, Rate } from "./styles";
+import { Subtitle, Rate, Article } from "./styles";
 
 function Post({ post, onRemove, onToggleMarkAsRead }) {
   return (
-    <article
-      className={
-        post.removed
-          ? `${postStyles.post} ${postStyles.deleted}`
-          : postStyles.post
-      }
-    >
+    <Article className={post.read ? "deleted" : ""}>
       <PostHeader
         onRemove={onRemove}
         onToggleMarkAsRead={onToggleMarkAsRead}
@@ -20,7 +14,7 @@ function Post({ post, onRemove, onToggleMarkAsRead }) {
       />
       <Subtitle>{post.subtitle}</Subtitle>
       <Rate>Likes: {post.likes / 2}</Rate>
-    </article>
+    </Article>
   );
 }
 

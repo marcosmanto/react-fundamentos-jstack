@@ -1,5 +1,30 @@
 import styled from "styled-components";
 
+export const Article = styled.article`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+  margin-bottom: 10px;
+  padding: 15px;
+  color: rgb(54, 54, 54);
+
+  button:nth-child(2) {
+    min-width: 113.64px;
+  }
+
+  &.deleted {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    //background-color: aqua;
+  }
+`;
+
 export const Subtitle = styled.small``;
 
 export const Rate = styled.span`
